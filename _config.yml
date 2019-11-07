@@ -1,3 +1,8 @@
 paginate: 10
 paginate_path: "/list/:num/"
-markdown: kramdown
+highlighter: rouge
+gist:
+  noscript: false
+kramdown:
+  math_engine: mathjax
+  syntax_highlighter: rouge
