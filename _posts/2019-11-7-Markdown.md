@@ -200,7 +200,7 @@ Markdown的语法简单说明
 长的代码段使用制表符缩进
 
 		int main() {
-			printf('hello world!');
+			printf("hello world!");
 		}
 
 或者用\`\`\`包裹(可指定对应语言，例如\`\`\`javascript)
@@ -212,6 +212,14 @@ Markdown的语法简单说明
 		sex: 'femail'
 	}
 	```
+
+**使用Rough代码高亮**
+
+{% highlight c linenos %}
+int main() {
+	printf("hello world!");
+}
+{% endhighlight %}
 
 ***
 
