@@ -1,0 +1,26 @@
+---
+layout: default
+---
+{% include search.html %}
+<ul>
+	<li>
+		<h2>{{ page.title }}</h2>
+		<p class="post_date">Date: {{ page.date | date: "%Y-%m-%d" }}</p>
+		<p class="post_tags">Tags: {{ page.tags }}</p>
+		{{ content }}
+	</li>
+</ul>
+<br/>
+<p>
+	{% if page.previous %}
+		<div class="post_previous">	
+			<a href="{{ page.previous.url }}">&lt;-- {{ page.previous.title }}</a>
+		</div>
+	{% endif %}
+	{% if page.next %}
+		<div class="post_next">	
+			<a href="{{ page.next.url }}">{{ page.next.title }} --&gt;</a>
+		</div>
+	{% endif %}
+</p>
+<br/><br/>

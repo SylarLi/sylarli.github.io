@@ -1,0 +1,38 @@
+<input type="search" id="search-input" placeholder="Search...">
+<ul id="search-results"></ul>
+<script src="/assets/js/simple-jekyll-search.min.js"></script>
+<script>
+	var input = document.getElementById('search-input')
+	var result = document.getElementById('search-results')
+
+	var sjs = SimpleJekyllSearch({
+	  searchInput: input,
+	  resultsContainer: result,
+	  json: '/search.json',
+	  limit: 10,
+	  noResultsText: '<li class="search-no-results">No results found</li>',
+	  searchResultTemplate: '<li><button class="search-results-button" onclick="OnClickSearchResult(\'{{ site.url }}{url}\')">{title}</button></li>',
+	})
+
+	function OnSearchInputChange() {
+		var text = input.value
+		var visible = text && text.length > 0
+		result.style.visibility = visible ? 'visible' : 'hidden'
+		if (visible)
+			result.style.width = input.offsetWidth + "px";
+	}
+
+	function OnSearchInputFocus() {
+		var text = input.value
+		if (text && text.length > 0)
+			sjs.search(text)
+		OnSearchInputChange()
+	}
+
+	function OnClickSearchResult(url) {
+		window.location.href = url
+	}
+
+	input.addEventListener("input", OnSearchInputChange)
+	input.addEventListener("focus", OnSearchInputFocus)
+</script>

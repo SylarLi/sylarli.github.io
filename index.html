@@ -1,11 +1,17 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Test</title>
-  </head>
-  <body>
-  		Test
-  </body>
-</html>
+---
+layout: default
+title: Database
+---
+{% include search.html %}
+<ul>
+	{% for post in site.posts limit: site.paginate %}
+		<li>
+			<h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+			<p>{{ post.excerpt }}</p>
+		</li>
+	{% endfor %}
+</ul>
+{% if site.posts.size > site.paginate %}
+<p><h2><a href="/list">......</a></h2></p>
+{% endif %}
+<br/><br/>
