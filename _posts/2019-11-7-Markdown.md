@@ -192,47 +192,53 @@ Markdown的语法简单说明
 
 ***
 
-**代码**
+**代码片段**
 
-短的片段用\`包裹`printf()`
+`printf()`
 
-长的代码段使用制表符缩进
+	`printf()`
 
-		int main() {
-			printf("hello world!");
-		}
+**使用制表符缩进**
 
-或者用\`\`\`包裹(可指定对应语言，例如\`\`\`javascript)
+	int main() {
+		printf("hello world!");
+	}
 
-	```json
-	{
-		apple: 1,
-		orange: 2,
-		sex: 'femail'
+```
+	int main() {
+		printf("hello world!");
+	}
+```
+
+**Markdown方式**
+
+```c
+int main() {
+	printf("hello world!");
+}
+```
+
+	```c
+	int main() {
+		printf("hello world!");
 	}
 	```
 
-**使用Rough代码高亮**
+**Liquids方式**
 
-{% highlight c# linenos %}
-private void ScaleItem(Transform item)
-{
-    if (item == null)
-        return;
-    var meshFilter = item.GetComponent<MeshFilter>();
-    if (meshFilter == null)
-        return;
-    var bounds = meshFilter.sharedMesh.bounds;
-    var size = bounds.size[m_Axis];
-    var scale = (m_Extend + size) / (m_LastExtend + size);
-    var meshRenderer = item.GetComponent<MeshRenderer>();
-    if (meshRenderer == null)
-        return;
-    var materials = meshRenderer.materials;
-    for (var i = materials.Length - 1; i >= 0; i--)
-        materials[i] = ScaleMaterial(materials[i], scale);
+{% highlight c linenos %}
+int main() {
+	printf("hello world!");
 }
 {% endhighlight %}
+
+	{% raw %}
+	{% highlight c linenos %}
+	int main() {
+		printf("hello world!");
+	}
+	{% endhighlight %}
+	{% endraw %}
 
 ***
 
