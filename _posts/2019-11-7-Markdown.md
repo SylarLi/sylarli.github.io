@@ -194,8 +194,7 @@ Markdown的语法简单说明
 
 **代码**
 
-短的片段用\`包裹  
-`printf()`
+短的片段用\`包裹`printf()`
 
 长的代码段使用制表符缩进
 
@@ -215,9 +214,23 @@ Markdown的语法简单说明
 
 **使用Rough代码高亮**
 
-{% highlight c linenos %}
-int main() {
-	printf("hello world!");
+{% highlight c# linenos %}
+private void ScaleItem(Transform item)
+{
+    if (item == null)
+        return;
+    var meshFilter = item.GetComponent<MeshFilter>();
+    if (meshFilter == null)
+        return;
+    var bounds = meshFilter.sharedMesh.bounds;
+    var size = bounds.size[m_Axis];
+    var scale = (m_Extend + size) / (m_LastExtend + size);
+    var meshRenderer = item.GetComponent<MeshRenderer>();
+    if (meshRenderer == null)
+        return;
+    var materials = meshRenderer.materials;
+    for (var i = materials.Length - 1; i >= 0; i--)
+        materials[i] = ScaleMaterial(materials[i], scale);
 }
 {% endhighlight %}
 

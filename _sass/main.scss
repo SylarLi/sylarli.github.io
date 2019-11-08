@@ -117,3 +117,31 @@ ul {
 	font-style: italic;
 	margin-bottom: 2rem;
 }
+
+figure.highlight, div.highlighter-rouge {
+	display: block;
+	background-color: white;
+	font-size: 1rem;
+	padding: 0.7rem;
+	margin: 0.5rem 0 0.5rem 0;
+	color: #3e3f3a;
+}
+
+code.highlighter-rouge {
+	display: inline-block;
+	background-color: white;
+	font-size: 1rem;
+	color: #3e3f3a;
+}
+
+figure.highlight pre, div.highlighter-rouge pre {
+	margin: 0;
+}
+
+code pre, code span {
+	font-family: Consolas;
+}
+
+pre {
+	line-height: 1.42857143;
+}
