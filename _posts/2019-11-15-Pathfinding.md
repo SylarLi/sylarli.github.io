@@ -5,7 +5,7 @@ tags: [pathfinding paper]
 下图为寻路算法伪代码，从左至右分别为A\*, Theta\*, Lazy Theta\*
 <img src="{{ site.url }}/assets/images/pathfinding-pesudo-code.png" width="100%">
 
-注: 已知寻路算法
+注: 已知寻路算法(*除1外，其他寻得的结果可能不是最短路径*)
 1. Dijkstra
 2. A* with post smoothing
 3. Field D*
