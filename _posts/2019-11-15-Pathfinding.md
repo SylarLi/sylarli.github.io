@@ -2,8 +2,12 @@
 layout: post
 tags: [pathfinding paper]
 ---
-寻路算法
+下图为寻路算法伪代码，从左至右分别为A\*, Theta\*, Lazy Theta\*
+<img src="{{ site.url }}/assets/images/pathfinding-pesudo-code.png" width="100%">
 
-1. A* with post smoothing
-2. Field D*
-3. [Lazy Theta]({{ site.url }}/assets/pdf/Lazy-Theta.pdf)
+注: 已知寻路算法
+1. Dijkstra
+2. A* with post smoothing
+3. Field D*
+4. Theta\*
+5. [Lazy Theta\*]({{ site.url }}/assets/pdf/Lazy-Theta.pdf)
