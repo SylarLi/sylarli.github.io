@@ -8,3 +8,5 @@ tags: [space spatial partition]
 2. 针对区域的空间划分
 	* BSP(Binary Space Partitioning)
 	* BVHs(Bounding Volume Hierarchies)
+	* QuadTree
+	* OctTree

@@ -1,6 +1,6 @@
 ---
 layout: post
-tags: [pathfinding steering behaviour]
+tags: [pathfinding steering behaviour collision avoidance]
 ---
 下图为类A\*寻路算法伪代码，从左至右分别为A\*, Theta\*, Lazy Theta\*
 <img src="{{ site.url }}/assets/images/pathfinding-pesudo-code.png" width="100%">
@@ -10,7 +10,7 @@ tags: [pathfinding steering behaviour]
 2. A* with post smoothing
 3. Theta\*
 4. [Lazy Theta\*]({{ site.url }}/assets/pdf/Lazy-Theta.pdf)
-5. Field D*
+5. D*
 6. B*
 
 使用A\*算法估算寻路路径，在寻路过程中尝试避免碰撞，可用模型如下
