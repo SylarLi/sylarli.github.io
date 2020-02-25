@@ -140,6 +140,10 @@ figure.highlight pre, div.highlighter-rouge pre {
 	margin: 0;
 }
 
+code {
+	white-space: pre-wrap;
+}
+
 code pre, code span {
 	font-family: Consolas;
 }
