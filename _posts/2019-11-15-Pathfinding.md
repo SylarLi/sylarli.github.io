@@ -7,11 +7,11 @@ tags: [pathfinding steering behaviour collision avoidance]
 
 注: 已知寻路算法(*除1外，其他寻得的结果可能不是最短路径*)
 1. Dijkstra
-2. A* with post smoothing
-3. Theta\*
-4. [Lazy Theta\*]({{site.url}}/assets/pdf/Lazy-Theta.pdf)
-5. D*
-6. B*
+2. A*
+3. [[Lazy] Theta\*]({{site.url}}/assets/pdf/Lazy-Theta.pdf)
+4. D\*(Dynamic A\*)
+5. [ARA\*]({{site.url}}/assets/pdf/ARA_-Anytime-A_-with-Provable-Bounds-on-Sub-Optimality.pdf)
+6. [Block A\*]({{site.url}}/assets/pdf/Block-A_-Database-Driven-Search-with-Applications-in-Any-angle-Path-Planning.pdf)
 
 使用A\*算法估算寻路路径，在寻路过程中尝试避免碰撞，可用模型如下
 1. [Steering Behaviors](http://www.red3d.com/cwr/steer/)
