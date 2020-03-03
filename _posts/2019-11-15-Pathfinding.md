@@ -12,6 +12,8 @@ tags: [pathfinding steering behaviour collision avoidance]
 4. D\*(Dynamic A\*)
 5. [ARA\*]({{site.url}}/assets/pdf/ARA_-Anytime-A_-with-Provable-Bounds-on-Sub-Optimality.pdf)
 6. [Block A\*]({{site.url}}/assets/pdf/Block-A_-Database-Driven-Search-with-Applications-in-Any-angle-Path-Planning.pdf)
+7. [HPA\*]({{site.url}}/assets/pdf/hpastar.pdf)
+8. [JPS(Jump Point Search)]({{site.url}}/assets/pdf/Online_Graph_Pruning_for_Pathfinding_On_Grid_Maps.pdf)(仅只用于代价均匀的格子寻路)
 
 使用A\*算法估算寻路路径，在寻路过程中尝试避免碰撞，可用模型如下
 1. [Steering Behaviors](http://www.red3d.com/cwr/steer/)
@@ -29,5 +31,3 @@ tags: [pathfinding steering behaviour collision avoidance]
 	3. 歧路检测和其他状态空间的剪枝(state-space pruning)算法：这种类型的算法大都会通过识别地图上无需探索的区域来最优化的到达目的地。虽然速度不及抽象式或是基于内存的启发式搜索，但此类算法消耗的内存还是很低，并能将寻路性能提高若干倍。典型例子：Dead-end Heuristic，Swamps，Portal Heuristic。
 
 	4. Rectangular Symmetry Reduction与文章所介绍的Jump Point Search，以在网格地图上识别并消除对称路径的方式来提高寻路性能。
-
-1. [JPS(Jump Point Search)]({{site.url}}/assets/pdf/Online_Graph_Pruning_for_Pathfinding_On_Grid_Maps.pdf)(仅只用于代价均匀的格子寻路)
