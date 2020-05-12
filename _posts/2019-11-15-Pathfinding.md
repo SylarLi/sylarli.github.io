@@ -20,6 +20,9 @@ tags: [pathfinding steering behaviour collision avoidance]
 2. [RVO(Reciprocal Velocity Obstacle)](http://gamma.cs.unc.edu/RVO/icra2008.pdf)
 3. [ORCA(Optimal Reciprocal Collision Avoidance)](http://gamma.cs.unc.edu/ORCA/publications/ORCA.pdf)
 
+排除不可能经过的区域：
+1. [Dead-end Heuristic]({{site.url}}/assets/pdf/Improved-Heuristics-for-Optimal-Pathfinding-on-Game-Maps.pdf)
+
 寻路算法的优化，摘抄自<https://www.ituring.com.cn/article/21938>
 
 	人们已经提出了许多提高寻路速度的技术。其中大多数可以被分为三类：
