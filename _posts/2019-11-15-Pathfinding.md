@@ -9,11 +9,12 @@ tags: [pathfinding steering behaviour collision avoidance]
 1. Dijkstra
 2. A*
 3. [[Lazy] Theta\*]({{site.url}}/assets/pdf/Lazy-Theta.pdf)
-4. D\*(Dynamic A\*)
-5. [ARA\*]({{site.url}}/assets/pdf/ARA_-Anytime-A_-with-Provable-Bounds-on-Sub-Optimality.pdf)
-6. [Block A\*]({{site.url}}/assets/pdf/Block-A_-Database-Driven-Search-with-Applications-in-Any-angle-Path-Planning.pdf)
-7. [HPA\*]({{site.url}}/assets/pdf/hpastar.pdf)
-8. [JPS(Jump Point Search)]({{site.url}}/assets/pdf/Online_Graph_Pruning_for_Pathfinding_On_Grid_Maps.pdf)(仅只用于代价均匀的格子寻路)
+4. [D\* Lite]({{site.url}}/assets/pdf/D-Star-Lite.pdf)
+5. [ARA\*(Anytime Repairing A\*)]({{site.url}}/assets/pdf/ARA_-Anytime-A_-with-Provable-Bounds-on-Sub-Optimality.pdf)
+6. [Anytime Dynmic A\*]({{site.url}}/assets/pdf/anytime-dstar.pdf)
+7. [Block A\*]({{site.url}}/assets/pdf/Block-A_-Database-Driven-Search-with-Applications-in-Any-angle-Path-Planning.pdf)
+8. [HPA\*]({{site.url}}/assets/pdf/hpastar.pdf)
+9. [JPS(Jump Point Search)]({{site.url}}/assets/pdf/Online_Graph_Pruning_for_Pathfinding_On_Grid_Maps.pdf)(仅只用于代价均匀的格子寻路)
 
 使用A\*算法估算寻路路径，在寻路过程中尝试避免碰撞，可用模型如下
 1. [Steering Behaviors](http://www.red3d.com/cwr/steer/)
