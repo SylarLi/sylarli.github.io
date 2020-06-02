@@ -9,4 +9,4 @@ tags: [line of sight LOS linedrawing]
 2. Digital Differential Algorithm (DDA)
 
 以下可用于实数点
-1. [A Fast Voxel Traversal Algorithm]({{ site.url }}/assets/pdf/A-Fast-Voxel-Traversal-Algorithm.pdf)
+1. [A Fast Voxel Traversal Algorithm]({{site.url}}/assets/pdf/A-Fast-Voxel-Traversal-Algorithm.pdf)
