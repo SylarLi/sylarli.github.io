@@ -45,6 +45,7 @@ import numpy as np
 import warnings
 warnings.filterwarnings("ignore")
 
+# 多项式逼近
 def gen_poly(poly_order, range, func):
 	return np.polyfit(range, func(range), poly_order)
 
@@ -57,11 +58,11 @@ func = lambda x: np.log2(1 + x)
 # val_raw = func(ran)
 # print('maximum error: ' + str(np.max(val_approx - val_raw)))
 
-size = 8
+lut = 8
 poly_order = 5
-for i in range(size):
-	start = float(i) / size
-	end = float(i + 1) / size
+for i in range(lut):
+	start = float(i) / lut
+	end = float(i + 1) / lut
 	ran = np.linspace(start, end, 1000000)
 	reg = gen_poly(poly_order, ran, func)
 	hnr = np.asarray(reg, dtype=np.float64)
@@ -69,6 +70,87 @@ for i in range(size):
 		print("" + str(c) + ","),
 {% endhighlight %}
 
-以上代码会将范围[0, 1)平均分为8份，求解每份范围的多项式系数，最终打印出系数查找表。
+以上代码会将范围[0, 1)平均分为lut份，求解每份范围的多项式系数，最终打印出系数查找表。
 
 还有一种土方法就是提升计算过程中数值的表示精度。例如将Q32.32的定点数转换为Q64.64，提升精度，减少中间值的误差损失。
+
+## 2020.10.13更新
+
+使用以上python例子进行数学计算误差损失还是太大，最后还是使用土方法，提升计算过程中数值的表示精度，将Q64.64的顶点数转换为Q64.128进行计算。但是由于numpy支持精度最大为双精度浮点数(float64)，达不到计算系数所需的精度。网上搜索一遍之后，最终决定使用Julia进行计算。
+Julia内置了任意精度的数值计算功能，在进行多项式逼近的时候可以获得任意精度的系数解，使用起来非常方便。
+
+{% highlight julia %}
+using CurveFit
+setprecision(128)
+
+# 多项式求值
+function polyval(c, x)
+	len = length(c)
+	map(xx -> begin
+				v = xx * c[len]
+				for i in len-1:-1:2
+					v = xx * (v + c[i])
+				end
+				v + c[1]
+			end, 
+			x)
+end
+
+# 多项式逼近
+function polyfit(func, lut, order, density)
+	arr = BigFloat[]
+	from = 0
+	to = 1
+	piece = (to - from) / lut
+	error = 0
+	for i in range(0,stop=lut-1,length=lut)
+		s = from + i * piece
+		e = s + piece
+		x = range(BigFloat(s), stop=BigFloat(e), length=density)
+		y = func(x)
+		fit = poly_fit(x, y, order)
+		apx = polyval(fit, x)
+		error = max(maximum(@. abs(y-apx)), error)
+		arr = vcat(arr, reverse(fit))
+	end
+	return arr, error
+end
+
+# 格式化浮点数x并以Q64.128定点数的形式输出
+function format(x)
+	sign = x < 0
+	x = abs(x)
+	hi = UInt64(floor(x))
+	frac = (x - hi) * exp2(64)
+	lo = UInt64(floor(frac))
+	oo = UInt64(floor((frac - lo) * exp2(64)))
+	if sign
+		if oo != 0
+			oo = ~oo + 1
+			lo = ~lo
+			hi = ~hi
+		elseif lo != 0
+			lo = ~lo + 1
+			hi = ~hi
+		else
+			hi = ~hi + 1
+		end
+	end
+	"new fp192($(hi), $(lo), $(oo))"
+end
+
+func = x -> @. 1/sqrt(1+x)
+lut = 64
+order = 8
+density = 1000
+coffs, error = polyfit(func, lut, order, density)
+ret = join(map(format, coffs), ", ")
+println(ret)
+println("maximum error: $error")
+open("C:/Users/Administrator/Desktop/poly.txt", "w") do io
+	write(io, ret)
+end
+
+{% endhighlight %}
+
+以上代码会将范围[0, 1)平均分为lut份，求解每份范围的多项式系数，最终打印出系数查找表。
