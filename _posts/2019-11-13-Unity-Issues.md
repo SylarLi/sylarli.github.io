@@ -17,3 +17,8 @@ tags: [unity3d issues]
 #### Unity2018.4.14
 
 1. 导入unitypackage时，unity会自动判断资源是否存在(估计是通过hash值方式进行判断，因为即使资源路径不同也只是提示刷新资源)。这样会出现某种意义上的副作用，例如在不同的prefab依赖相同的资源的情况下，根据prefab分别导出两个包，再导入unity之后相同的资源只会存在一份。
+2. 使用hashcode作为唯一id是不安全的，系统默认实现不能保证不同的object生成的hashcode不相同。Mono CLR的RuntimeHelpers.GetHashCode和IL2CPP编译之后的C++的实现方式不同，后者发生碰撞的概率更高。
+
+#### Unity2019.4.27
+
+1. 使用LoadSceneMode.Additive方式进行场景加载时，LightProbe数据会发生错乱导致光照[问题](https://issuetracker.unity3d.com/issues/mse-additively-loaded-scenes-use-light-probe-data-from-first-loaded-scene)。对此unity给出了[解决方案](https://docs.unity3d.com/ScriptReference/LightProbes-needsRetetrahedralization.html)。
