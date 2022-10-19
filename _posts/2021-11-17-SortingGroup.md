@@ -1,0 +1,8 @@
+---
+layout: post
+tags: [unity3d sortinggroup sortinglayer sortingorder]
+---
+SortingGroup会对子层级的所有Renderer进行整体排序（子层级还是会按原本的sortingLayer和sortingOrder进行排序）
+非嵌套的SortingGroup之间是会按照脚本设置的layer和order进行排序
+非嵌套的SortingGroup和父层级未设置SortingGroup的Renderer也会按照layer和order进行排序
+总结一下：SortingGroup的子层级的所有可排序对象（包括嵌套的SortingGroup和Renderer）是在一个子域中进行排序，而其整体会与其他非嵌套的可排序对象进行排序
